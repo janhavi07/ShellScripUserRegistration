@@ -46,6 +46,17 @@ function toCheckMobileNUmber()
         fi
 }
 
+function tocheckPassword()
+{
+	passwordPattern="^[(a-zA-Z0-9)(!@#$&*)]{8,}$"
+	if [[ $password =~ $passwordPattern ]]
+        then
+                echo "VALID PASSWORD"
+        else
+                echo "INVALID PASSWORD,IT SHOULD HAVE MINIMUM 8 CHARACTERS"
+        fi
+}
+
 function main()
 {
 	echo " Enter the First name: "
@@ -60,7 +71,12 @@ function main()
 	echo "Enter the MObile Number: "
 	read mobileNumber
 	toCheckMobileNUmber
+	echo "Enter password: "
+	read -s password
+	tocheckPassword
+
 }
 
 main
+
 
