@@ -48,7 +48,7 @@ function toCheckMobileNUmber()
 
 function tocheckPassword()
 {
-	passwordPattern="^[(a-zA-Z0-9)(!@#$&*)]{8,}$"
+	passwordPattern="^[a-z0-9]*[A-Z]+[a-zA-Z0-9]*$"
 	if [[ $password =~ $passwordPattern ]]
         then
                 echo "VALID PASSWORD"
