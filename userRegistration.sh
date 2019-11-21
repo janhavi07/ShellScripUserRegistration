@@ -4,7 +4,7 @@ shopt --s extglob
 
 firstNamePattern="^[A-Z]+[a-z]*$"
 lastNamePattern="^[A-Z]+[a-z]{3,}$"
-
+emailAddressPattern="^[a-z0-9]+[\.\+\_\-]?[0-9a-z]+@{1}[a-z0-9]+\.{1}[a-z]{2,4}([.][a-z]{2})?$"
 
 function toCheckFirstName()
 {
@@ -27,6 +27,17 @@ function toCheckLastName()
 	fi
 }
 
+function toCheckEmailAddress()
+{
+	if [[ $emailAddress =~ $emailAddressPattern ]]
+        then
+                echo "VALID EMAIL-ADDRESS"
+        else
+                echo "INVALID EMAIL-ADDRESS"
+        fi
+
+}
+
 function main()
 {
 	echo " Enter the First name: "
@@ -35,6 +46,9 @@ function main()
 	echo "Enter the Last name: " 
 	read lastName
 	toCheckLastName
+	echo "Enter the User Email Address: "
+	read emailAddress
+	toCheckEmailAddress
 }
 main
 
