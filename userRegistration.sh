@@ -1,13 +1,40 @@
 #!/bin/bash -x
 shopt --s extglob
 
-echo " Enter the First name: "
-read firstName
+
 firstNamePattern="^[A-Z]+[a-z]*$"
-if [[ $firstName =~ $firstNamePattern ]]
-then
-        echo "VALID USERNAME"
-else
-        echo "INVALID USERNAME"
-fi
+lastNamePattern="^[A-Z]+[a-z]{3,}$"
+
+
+function toCheckFirstName()
+{
+	if [[ $firstName =~ $firstNamePattern ]]
+	then
+        	echo "VALID FIRST-NAME"
+	else
+        	echo "INVALID FIRST-NAME"
+	fi
+}
+
+function toCheckLastName()
+{
+
+	if [[ $lastName =~ $lastNamePattern ]]
+	then
+        	echo "VALID LAST-NAME"
+	else
+        	echo "INVALID LAST-NAME"
+	fi
+}
+
+function main()
+{
+	echo " Enter the First name: "
+	read firstName
+	toCheckFirstName
+	echo "Enter the Last name: " 
+	read lastName
+	toCheckLastName
+}
+main
 
